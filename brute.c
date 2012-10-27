@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define FORK 0
+
 void print(char * t[], int from, int to) {
   int i;
   for (i = from ; i < to ; i++) {
@@ -26,6 +28,12 @@ main (int argc, char * argv[]) {
   if (n < 1) {
     printf("usage: %s <sequence>\n", argv[0]);
     return 0;
+  }
+
+  for (stop = 0; stop < FORK; stop++) {
+    if (fork()) {
+      swap(argv, 1, 2);
+    }
   }
 
   print(argv, 1, argc);
