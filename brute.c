@@ -19,13 +19,13 @@ void swap(char * t[], int i, int j) {
 main (int argc, char * argv[]) {
 
   int n = argc - 1;
-  int stack[32] = {0};
+  int stack[64] = {0};
   int esp = n - 1;
   int stop = 0;
   int offset = 0;
   int odd = 0;
 
-  if (n < 1) {
+  if (n < 1 || n > 64) {
     printf("usage: %s <sequence>\n", argv[0]);
     return 0;
   }
